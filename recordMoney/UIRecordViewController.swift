@@ -19,13 +19,15 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var myTableView :UITableView!
     
     let myFormatter = DateFormatter()
-    
     let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let myUserDefaults = UserDefaults.standard
+    
     
     var coreConnect :CoreDataConnect?
     var myDatePicker :UIDatePicker!
     var currentDate :Date = Date()
+    var myRecords : [String:[[String:String]]] = [:]
+    var days: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +49,57 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         setupDatePicker()
+        updateRecordList()
     }
 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func updateRecordList(){
+        guard let connect = coreConnect else {
+            return
+        }
+        myFormatter.dateFormat = "yyyy-MM-dd"
+        let createTime = myFormatter.string(from: currentDate)
+        let myEntityName = "Account"
+        let predicate = String(format:"createTime = '%@'", createTime)
+        
+        var total = 0.0
+        myRecords = [:]
+        days = []
+        
+        let statement = connect.fetch(myEntityName: myEntityName, predicate: predicate, sort: [["createTime": true]], limit: nil)
+        
+        if let results = statement {
+            for result in results {
+                let id = result.id
+                let type = result.type!
+                let amount = result.amount
+                let createTime = result.createTime!
+                
+                
+                if createTime != "" {
+                    if !days.contains(createTime) {
+                        days.append(createTime)
+                        myRecords[createTime] = []
+                    }
+                    
+                    myRecords[createTime]?.append(
+                        ["id":"\(id)",
+                         "type":"\(type)",
+                         "amount":"\(amount)",
+                         "createTime":"\(createTime)"]
+                    )
+                    total += amount
+                }
+                
+                
+            }
+        }
+        myTableView.reloadData()
+        amountLabel.text = String(format: "%g", total)
     }
     
     func setupDatePicker() {
@@ -130,18 +178,15 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.view.endEditing(true)
     }
     
-    
-    
     // TableView Section
     //每一組有幾個cell *必須實作
     func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int
     {
-//        let date = days[section]
-//        guard let records = myRecords[date] else {
-//            return 0
-//        }
-//        return records.count
-        return 3
+        let date = days[section]
+        guard let records = myRecords[date] else {
+            return 0
+        }
+        return records.count
     }
     //顯示cell資料 *必須實作
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -149,7 +194,13 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         
-        cell!.detailTextLabel?.text = "22"
+        let date = days[indexPath.section]
+        guard let records = myRecords[date] else {
+            return cell!
+        }
+        
+        cell!.detailTextLabel?.text = String(format: "%g", Float(records[indexPath.row]["amount"]!)!)
+        cell!.textLabel?.text = records[indexPath.row]["type"]
         
         return cell!
     }
@@ -158,21 +209,21 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        let date = days[indexPath.section]
-//        guard let records = myRecords[date] else {
-//            return
-//        }
-//        
-//        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "addRecord") as! addRecordViewController
-//        
-//        menuVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(ViewController.goBack))
-//        let navController = UINavigationController(rootViewController: menuVC)
-//        
-//        
-//        myUserDefaults.set(Int(records[indexPath.row]["id"]!), forKey: "postID")
-//        myUserDefaults.synchronize()
-//        
-//        self.present(navController, animated: true, completion: nil)
+        let date = days[indexPath.section]
+        guard let records = myRecords[date] else {
+            return
+        }
+        
+        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "showRecord") as! UIRecordDetailViewController
+        
+        menuVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(UIRecordViewController.goBack))
+        let naviController = UINavigationController(rootViewController: menuVC)
+        
+        
+        myUserDefaults.set(Int(records[indexPath.row]["id"]!), forKey: "postID")
+        myUserDefaults.synchronize()
+        
+        self.present(naviController, animated: true, completion: nil)
         
     }
     
@@ -183,20 +234,18 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     // section 標題
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        //return days[section]
-        return "2017-01-23"
-    }
-    
-    // section 標題 高度
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return days[section]
+//    }
+//    
+//    // section 標題 高度
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 40
+//    }
     
     // section footer 高度
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        //return (days.count - 1) == section ? 60 : 3
-        return 3
+        return (days.count - 1) == section ? 60 : 3
     }
     
     // section header 樣式

@@ -34,7 +34,7 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         coreConnect = CoreDataConnect.init(moc: self.moc)
         
-        myFormatter.dateFormat = "yyyy年MM月dd日"
+        myFormatter.dateFormat = "yyyy-MM-dd"
         myDatePicker = UIDatePicker()
         myDatePicker.datePickerMode = .date
         myDatePicker.locale = Locale(identifier: "zh_TW")
@@ -119,6 +119,31 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
         currentDateTextField.inputAccessoryView = toolBar
     }
     
+    // 切換月份
+    func updateCurrentDate(_ dateComponents :DateComponents) {
+        let cal = Calendar.current
+        //let newDate = (cal as NSCalendar).date(byAdding: dateComponents, to: currentDate, options: NSCalendar.Options(rawValue: 0))
+        let newDate = cal.date(byAdding: dateComponents, to: currentDate)
+        currentDate = newDate!
+        
+        // 更新年月
+        myFormatter.dateFormat = "yyyy-MM-dd"
+        currentDateTextField.text = myFormatter.string(from: currentDate)
+        
+        self.updateRecordList()
+    }
+    
+    @IBAction func nextBtnAction(sender:AnyObject) {
+        var dateComponents = DateComponents()
+        dateComponents.day = 1
+        self.updateCurrentDate(dateComponents)
+    }
+    
+    @IBAction func prevBtnAction(sender:AnyObject) {
+        var dateComponents = DateComponents()
+        dateComponents.day = -1
+        self.updateCurrentDate(dateComponents)
+    }
     
     @IBAction func addAction() {
         let optionMenu = UIAlertController(title: nil, message: "新增方式", preferredStyle: .actionSheet)
@@ -182,6 +207,9 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
     //每一組有幾個cell *必須實作
     func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int
     {
+        if days.count == 0 {
+            return 0
+        }
         let date = days[section]
         guard let records = myRecords[date] else {
             return 0

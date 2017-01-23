@@ -107,7 +107,9 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
     
     func setupPickerView(){
         //設初值
-        //typeTextField.text = myType[0]
+        if typeTextField.text == "" {
+            typeTextField.text = myType[0]
+        }
         typeTextField.inputView = myPickerView
         
         let toolBar = UIToolbar()
@@ -145,6 +147,24 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
     
     func fetchRequest() {
         
+    }
+    
+    @IBAction func delbtnAction(sender:AnyObject) {
+        // 確認刪除框
+        let alertController = UIAlertController(title: "刪除", message: "確認要刪除嗎？", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let okAction = UIAlertAction(title: "刪除", style: .default, handler: {
+            (result) -> Void in
+            if let connect = self.coreDateConnect {
+                _ = connect.delete(myEntityName: "Account", predicate: "id = \(self.record.id)")
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(okAction)
+        
+        self.present(alertController,animated: false,completion:nil)
     }
     
 

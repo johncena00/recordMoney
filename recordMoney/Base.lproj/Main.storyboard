@@ -31,6 +31,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIv-31-HVN">
                                                 <rect key="frame" x="0.0" y="0.0" width="36.5" height="30"/>
                                                 <state key="normal" title="Prev"/>
+                                                <connections>
+                                                    <action selector="prevBtnActionWithSender:" destination="Im7-RU-M47" eventType="touchUpInside" id="mni-00-N7L"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2017年01月23日" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6su-iw-mEy">
                                                 <rect key="frame" x="61.5" y="0.0" width="143.5" height="30"/>
@@ -41,6 +44,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itJ-tT-yDP">
                                                 <rect key="frame" x="230" y="0.0" width="32" height="30"/>
                                                 <state key="normal" title="Next"/>
+                                                <connections>
+                                                    <action selector="nextBtnActionWithSender:" destination="Im7-RU-M47" eventType="touchUpInside" id="r8V-MO-ghW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -179,6 +185,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPy-2l-NC3">
                                 <rect key="frame" x="165" y="617" width="45" height="30"/>
                                 <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="delbtnActionWithSender:" destination="L9a-LS-js2" eventType="touchUpInside" id="i7T-qW-YvW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

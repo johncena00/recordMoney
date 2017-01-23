@@ -138,7 +138,7 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let addActionHandler = {
             (action :UIAlertAction!) -> Void in
-            self.myUserDefaults.set(0, forKey: "postID")
+            self.myUserDefaults.set(-1, forKey: "postID")
             self.myUserDefaults.synchronize()
             self.present(naviController, animated: true, completion: nil)
         }

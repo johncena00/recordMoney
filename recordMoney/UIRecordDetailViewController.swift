@@ -30,6 +30,7 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
     let myUserDefaults = UserDefaults.standard
     let myType : [String] = ["食","衣","住","行","育","樂"]
     
+    var recordId: Int = 0
     var coreDateConnect: CoreDataConnect?
     var record : Record!
     var myDatePicker :UIDatePicker!
@@ -39,23 +40,41 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        amountTextField.becomeFirstResponder()
+        
+        self.title = "新增紀錄"
         
         myPickerView = UIPickerView()
-        
         myPickerView.dataSource = self
         myPickerView.delegate = self
 
         coreDateConnect = CoreDataConnect.init(moc: self.moc)
         
-        myFormatter.dateFormat = "yyyy-MM-dd"
-        record = Record(id: 0, desc: nil, amount: nil, type: nil, createTime: myFormatter.string(from: Date()))
+        recordId = myUserDefaults.object(forKey: "postID") as! Int
         
-        
-        myDatePicker = UIDatePicker()
-        myDatePicker.datePickerMode = .date
-        myDatePicker.locale = Locale(identifier: "zh_TW")
-        
+        if let connect = coreDateConnect {
+            myFormatter.dateFormat = "yyyy-MM-dd"
+            record = Record(id: 0, desc: nil, amount: nil, type: nil, createTime: myFormatter.string(from: Date()))
+            
+            if recordId > -1 {
+                self.title = "更新"
+                let predicate = "id = \(recordId)"
+                let statement = connect.fetch(myEntityName: "Account", predicate: predicate, sort: nil, limit: nil)
+                
+                if let results = statement {
+                    for result in results{
+                        record.id = Int(result.id)
+                        record.desc = result.desc!
+                        record.amount = result.amount
+                        record.type = result.type!
+                        record.createTime = result.createTime!
+                    }
+                }
+            }
+        }
+        if recordId < 0 {
+            amountTextField.becomeFirstResponder()
+        }
+        // 手勢判斷
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
@@ -66,14 +85,29 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setupValue()
         setupPickerView()
         setupDatePicker()
-        fetchRequest()
+    }
+    
+    func setupValue() {
+        if let str = record.amount {
+            amountTextField.text = String(format: "%g",str)
+        }
+        if let str = record.desc {
+            descTextField.text = str
+        }
+        if let str = record.type {
+            typeTextField.text = str
+        }
+        if let str = record.createTime {
+            createTimeTextField.text = str
+        }
     }
     
     func setupPickerView(){
         //設初值
-        typeTextField.text = myType[0]
+        //typeTextField.text = myType[0]
         typeTextField.inputView = myPickerView
         
         let toolBar = UIToolbar()
@@ -88,6 +122,11 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
     }
     
     func setupDatePicker() {
+        
+        myDatePicker = UIDatePicker()
+        myDatePicker.datePickerMode = .date
+        myDatePicker.locale = Locale(identifier: "zh_TW")
+        
         createTimeTextField.text = myFormatter.string(from: currentDate)
         myDatePicker.date = myFormatter.date(from:createTimeTextField.text!)!
         createTimeTextField.inputView = myDatePicker
@@ -107,6 +146,8 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
     func fetchRequest() {
         
     }
+    
+
     
     @IBAction func saveBtnAction(sender:AnyObject) {
         let myEntityName = "Account"
@@ -142,24 +183,44 @@ class UIRecordDetailViewController: UIViewController, UIPickerViewDelegate,UIPic
             return
         }
         
+        // 資料處理
+        var result:Bool
+        
         record.amount = Double(amountTextField.text!) ?? 0
         record.type = typeTextField.text ?? ""
         record.desc = descTextField.text ?? ""
         record.createTime = createTimeTextField.text!
         
+        if recordId > -1 { //更新 recordId 從0向上遞增
+            let predicate = "id = \(recordId)"
+            result = connect.update(myEntityName: myEntityName, predicate: predicate, attributeInfo: [
+                "amount":"\(record.amount!)",
+                "type":"\(record.type!)",
+                "desc":"\(record.desc!)",
+                "createTime":"\(record.createTime!)"])
+        } else { //新增
+            result = connect.insert(myEntityName: myEntityName, attributeInfo: [
+                "id":"\(record.id)",
+                "amount":"\(record.amount!)",
+                "type":"\(record.type!)",
+                "desc":"\(record.desc!)",
+                "createTime":"\(record.createTime!)"])
+        }
+//        let result = connect.insert(myEntityName: myEntityName, attributeInfo: [
+//            "id":"\(record.id)",
+//            "amount":"\(record.amount!)",
+//            "type":"\(record.type!)",
+//            "desc":"\(record.desc!)",
+//            "createTime":"\(record.createTime!)"])
+
         
-        let insetResult = connect.insert(myEntityName: myEntityName, attributeInfo: [
-            "id":"\(record.id)",
-            "amount":"\(record.amount!)",
-            "type":"\(record.type!)",
-            "desc":"\(record.desc!)",
-            "createTime":"\(record.createTime!)"])
         
-        if insetResult {
-            print("新增成功")
-            myUserDefaults.set(record.id, forKey: "idSeq")
-            myUserDefaults.synchronize()
-            
+        if result {
+            print("儲存成功")
+            if recordId <= -1 { //新增的情況
+                myUserDefaults.set(record.id, forKey: "idSeq")
+                myUserDefaults.synchronize()
+            }
             dismiss(animated: true, completion: nil)
         }
 

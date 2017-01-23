@@ -8,29 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		293AAF8E9E05143DB799257D /* Pods_recordMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1878612A27715C12B53D0891 /* Pods_recordMoney.framework */; };
-		E3AAED8C1E34E86900D05BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAED8B1E34E86900D05BA9 /* AppDelegate.swift */; };
-		E3AAED8E1E34E86900D05BA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAED8D1E34E86900D05BA9 /* ViewController.swift */; };
-		E3AAED911E34E86900D05BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AAED8F1E34E86900D05BA9 /* Main.storyboard */; };
-		E3AAED941E34E86900D05BA9 /* recordMoney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3AAED921E34E86900D05BA9 /* recordMoney.xcdatamodeld */; };
-		E3AAED961E34E86900D05BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3AAED951E34E86900D05BA9 /* Assets.xcassets */; };
-		E3AAED991E34E86900D05BA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AAED971E34E86900D05BA9 /* LaunchScreen.storyboard */; };
 		E3AAEDA21E34E87F00D05BA9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AAEDA11E34E87F00D05BA9 /* CoreData.framework */; };
 		E3AAEDA41E34E8F300D05BA9 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AAEDA31E34E8F300D05BA9 /* Charts.framework */; };
+		E3AAEDBC1E34FCA200D05BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDAF1E34FCA200D05BA9 /* AppDelegate.swift */; };
+		E3AAEDBD1E34FCA200D05BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3AAEDB01E34FCA200D05BA9 /* Assets.xcassets */; };
+		E3AAEDBE1E34FCA200D05BA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AAEDB11E34FCA200D05BA9 /* LaunchScreen.storyboard */; };
+		E3AAEDBF1E34FCA200D05BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AAEDB31E34FCA200D05BA9 /* Main.storyboard */; };
+		E3AAEDC01E34FCA200D05BA9 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDB61E34FCA200D05BA9 /* Account+CoreDataClass.swift */; };
+		E3AAEDC11E34FCA200D05BA9 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDB71E34FCA200D05BA9 /* Account+CoreDataProperties.swift */; };
+		E3AAEDC21E34FCA200D05BA9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AAEDB81E34FCA200D05BA9 /* Info.plist */; };
+		E3AAEDC31E34FCA200D05BA9 /* recordMoney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDB91E34FCA200D05BA9 /* recordMoney.xcdatamodeld */; };
+		E3AAEDC81E34FD0100D05BA9 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDC71E34FD0100D05BA9 /* CoreDataConnect.swift */; };
+		E3AAEDCA1E352A1500D05BA9 /* UIPieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDC91E352A1500D05BA9 /* UIPieChartViewController.swift */; };
+		E3AAEDCC1E352CCE00D05BA9 /* UIRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDCB1E352CCE00D05BA9 /* UIRecordViewController.swift */; };
+		E3AAEDCE1E35AF6B00D05BA9 /* UIRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDCD1E35AF6B00D05BA9 /* UIRecordDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1878612A27715C12B53D0891 /* Pods_recordMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C240C3AADE12674F5094C6E6 /* Pods-recordMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordMoney.release.xcconfig"; path = "Pods/Target Support Files/Pods-recordMoney/Pods-recordMoney.release.xcconfig"; sourceTree = "<group>"; };
 		E3AAED881E34E86900D05BA9 /* recordMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3AAED8B1E34E86900D05BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E3AAED8D1E34E86900D05BA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E3AAED901E34E86900D05BA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E3AAED931E34E86900D05BA9 /* recordMoney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = recordMoney.xcdatamodel; sourceTree = "<group>"; };
-		E3AAED951E34E86900D05BA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E3AAED981E34E86900D05BA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E3AAED9A1E34E86900D05BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3AAEDA11E34E87F00D05BA9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E3AAEDA31E34E8F300D05BA9 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "Pods/../build/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
+		E3AAEDAF1E34FCA200D05BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E3AAEDB01E34FCA200D05BA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3AAEDB21E34FCA200D05BA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E3AAEDB41E34FCA200D05BA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E3AAEDB61E34FCA200D05BA9 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E3AAEDB71E34FCA200D05BA9 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E3AAEDB81E34FCA200D05BA9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3AAEDBA1E34FCA200D05BA9 /* recordMoney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = recordMoney.xcdatamodel; sourceTree = "<group>"; };
+		E3AAEDC71E34FD0100D05BA9 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
+		E3AAEDC91E352A1500D05BA9 /* UIPieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPieChartViewController.swift; sourceTree = "<group>"; };
+		E3AAEDCB1E352CCE00D05BA9 /* UIRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRecordViewController.swift; sourceTree = "<group>"; };
+		E3AAEDCD1E35AF6B00D05BA9 /* UIRecordDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRecordDetailViewController.swift; sourceTree = "<group>"; };
 		FF9395B9C9FC96640AE7B726 /* Pods-recordMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordMoney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-recordMoney/Pods-recordMoney.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +62,7 @@
 		E3AAED7F1E34E86900D05BA9 = {
 			isa = PBXGroup;
 			children = (
-				E3AAED8A1E34E86900D05BA9 /* recordMoney */,
+				E3AAEDAE1E34FCA200D05BA9 /* recordMoney */,
 				E3AAED891E34E86900D05BA9 /* Products */,
 				E3AAEDA01E34E87F00D05BA9 /* Frameworks */,
 				FB171E80EFE0E602AE1657D9 /* Pods */,
@@ -66,20 +77,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E3AAED8A1E34E86900D05BA9 /* recordMoney */ = {
-			isa = PBXGroup;
-			children = (
-				E3AAED8B1E34E86900D05BA9 /* AppDelegate.swift */,
-				E3AAED8D1E34E86900D05BA9 /* ViewController.swift */,
-				E3AAED8F1E34E86900D05BA9 /* Main.storyboard */,
-				E3AAED951E34E86900D05BA9 /* Assets.xcassets */,
-				E3AAED971E34E86900D05BA9 /* LaunchScreen.storyboard */,
-				E3AAED9A1E34E86900D05BA9 /* Info.plist */,
-				E3AAED921E34E86900D05BA9 /* recordMoney.xcdatamodeld */,
-			);
-			path = recordMoney;
-			sourceTree = "<group>";
-		};
 		E3AAEDA01E34E87F00D05BA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +85,33 @@
 				1878612A27715C12B53D0891 /* Pods_recordMoney.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3AAEDAE1E34FCA200D05BA9 /* recordMoney */ = {
+			isa = PBXGroup;
+			children = (
+				E3AAEDAF1E34FCA200D05BA9 /* AppDelegate.swift */,
+				E3AAEDB01E34FCA200D05BA9 /* Assets.xcassets */,
+				E3AAEDB11E34FCA200D05BA9 /* LaunchScreen.storyboard */,
+				E3AAEDB31E34FCA200D05BA9 /* Main.storyboard */,
+				E3AAEDB51E34FCA200D05BA9 /* CoreData */,
+				E3AAEDB81E34FCA200D05BA9 /* Info.plist */,
+				E3AAEDB91E34FCA200D05BA9 /* recordMoney.xcdatamodeld */,
+				E3AAEDC91E352A1500D05BA9 /* UIPieChartViewController.swift */,
+				E3AAEDCB1E352CCE00D05BA9 /* UIRecordViewController.swift */,
+				E3AAEDCD1E35AF6B00D05BA9 /* UIRecordDetailViewController.swift */,
+			);
+			path = recordMoney;
+			sourceTree = "<group>";
+		};
+		E3AAEDB51E34FCA200D05BA9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E3AAEDC71E34FD0100D05BA9 /* CoreDataConnect.swift */,
+				E3AAEDB61E34FCA200D05BA9 /* Account+CoreDataClass.swift */,
+				E3AAEDB71E34FCA200D05BA9 /* Account+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		FB171E80EFE0E602AE1657D9 /* Pods */ = {
@@ -162,9 +186,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3AAED991E34E86900D05BA9 /* LaunchScreen.storyboard in Resources */,
-				E3AAED961E34E86900D05BA9 /* Assets.xcassets in Resources */,
-				E3AAED911E34E86900D05BA9 /* Main.storyboard in Resources */,
+				E3AAEDC21E34FCA200D05BA9 /* Info.plist in Resources */,
+				E3AAEDBF1E34FCA200D05BA9 /* Main.storyboard in Resources */,
+				E3AAEDBD1E34FCA200D05BA9 /* Assets.xcassets in Resources */,
+				E3AAEDBE1E34FCA200D05BA9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,29 +248,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3AAED8E1E34E86900D05BA9 /* ViewController.swift in Sources */,
-				E3AAED941E34E86900D05BA9 /* recordMoney.xcdatamodeld in Sources */,
-				E3AAED8C1E34E86900D05BA9 /* AppDelegate.swift in Sources */,
+				E3AAEDC81E34FD0100D05BA9 /* CoreDataConnect.swift in Sources */,
+				E3AAEDCC1E352CCE00D05BA9 /* UIRecordViewController.swift in Sources */,
+				E3AAEDC11E34FCA200D05BA9 /* Account+CoreDataProperties.swift in Sources */,
+				E3AAEDCA1E352A1500D05BA9 /* UIPieChartViewController.swift in Sources */,
+				E3AAEDCE1E35AF6B00D05BA9 /* UIRecordDetailViewController.swift in Sources */,
+				E3AAEDBC1E34FCA200D05BA9 /* AppDelegate.swift in Sources */,
+				E3AAEDC01E34FCA200D05BA9 /* Account+CoreDataClass.swift in Sources */,
+				E3AAEDC31E34FCA200D05BA9 /* recordMoney.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E3AAED8F1E34E86900D05BA9 /* Main.storyboard */ = {
+		E3AAEDB11E34FCA200D05BA9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E3AAED901E34E86900D05BA9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E3AAED971E34E86900D05BA9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E3AAED981E34E86900D05BA9 /* Base */,
+				E3AAEDB21E34FCA200D05BA9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E3AAEDB31E34FCA200D05BA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3AAEDB41E34FCA200D05BA9 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -402,12 +432,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E3AAED921E34E86900D05BA9 /* recordMoney.xcdatamodeld */ = {
+		E3AAEDB91E34FCA200D05BA9 /* recordMoney.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E3AAED931E34E86900D05BA9 /* recordMoney.xcdatamodel */,
+				E3AAEDBA1E34FCA200D05BA9 /* recordMoney.xcdatamodel */,
 			);
-			currentVersion = E3AAED931E34E86900D05BA9 /* recordMoney.xcdatamodel */;
+			currentVersion = E3AAEDBA1E34FCA200D05BA9 /* recordMoney.xcdatamodel */;
 			path = recordMoney.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

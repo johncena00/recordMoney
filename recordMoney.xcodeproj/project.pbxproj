@@ -16,7 +16,6 @@
 		E3AAEDBF1E34FCA200D05BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3AAEDB31E34FCA200D05BA9 /* Main.storyboard */; };
 		E3AAEDC01E34FCA200D05BA9 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDB61E34FCA200D05BA9 /* Account+CoreDataClass.swift */; };
 		E3AAEDC11E34FCA200D05BA9 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDB71E34FCA200D05BA9 /* Account+CoreDataProperties.swift */; };
-		E3AAEDC21E34FCA200D05BA9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3AAEDB81E34FCA200D05BA9 /* Info.plist */; };
 		E3AAEDC31E34FCA200D05BA9 /* recordMoney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDB91E34FCA200D05BA9 /* recordMoney.xcdatamodeld */; };
 		E3AAEDC81E34FD0100D05BA9 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDC71E34FD0100D05BA9 /* CoreDataConnect.swift */; };
 		E3AAEDCA1E352A1500D05BA9 /* UIPieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDC91E352A1500D05BA9 /* UIPieChartViewController.swift */; };
@@ -186,7 +185,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3AAEDC21E34FCA200D05BA9 /* Info.plist in Resources */,
 				E3AAEDBF1E34FCA200D05BA9 /* Main.storyboard in Resources */,
 				E3AAEDBD1E34FCA200D05BA9 /* Assets.xcassets in Resources */,
 				E3AAEDBE1E34FCA200D05BA9 /* LaunchScreen.storyboard in Resources */,

@@ -64,7 +64,7 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
         myFormatter.dateFormat = "yyyy-MM-dd"
         let createTime = myFormatter.string(from: currentDate)
         let myEntityName = "Account"
-        let predicate = String(format:"createTime = '%@'", createTime)
+        let predicate = String(format:"createTime == '%@'", createTime)
         
         var total = 0.0
         myRecords = [:]

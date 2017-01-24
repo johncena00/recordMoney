@@ -257,14 +257,27 @@
                                     <segment title="月"/>
                                     <segment title="年"/>
                                 </segments>
+                                <connections>
+                                    <action selector="myToggleAction:" destination="7qF-ts-C39" eventType="valueChanged" id="xzW-f2-Vei"/>
+                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/01/17 ~ 2017/01/24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8Q-nn-l59">
+                                <rect key="frame" x="73" y="72" width="244" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4CC-vf-Nhh" firstAttribute="top" secondItem="FeA-3F-OaZ" secondAttribute="bottom" constant="39" id="7f5-A5-yV7"/>
+                            <constraint firstItem="J8Q-nn-l59" firstAttribute="top" secondItem="B54-7D-e2V" secondAttribute="bottom" constant="8" id="EQu-Si-uxy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J8Q-nn-l59" secondAttribute="trailing" constant="42" id="YOU-bP-4lq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FeA-3F-OaZ" secondAttribute="trailing" constant="21" id="ZF0-Lm-vcb"/>
                             <constraint firstItem="FeA-3F-OaZ" firstAttribute="top" secondItem="B54-7D-e2V" secondAttribute="bottom" constant="35" id="aHI-4S-rXt"/>
+                            <constraint firstItem="FeA-3F-OaZ" firstAttribute="top" secondItem="J8Q-nn-l59" secondAttribute="bottom" constant="6" id="eMR-Wy-KYE"/>
                             <constraint firstAttribute="leadingMargin" secondItem="4CC-vf-Nhh" secondAttribute="leading" id="hDD-hg-W8U"/>
+                            <constraint firstItem="J8Q-nn-l59" firstAttribute="leading" secondItem="Nb5-by-RCf" secondAttribute="leadingMargin" constant="57" id="jp3-0C-fdT"/>
                             <constraint firstItem="4CC-vf-Nhh" firstAttribute="centerX" secondItem="FeA-3F-OaZ" secondAttribute="centerX" id="kdr-bt-bFs"/>
                             <constraint firstItem="FeA-3F-OaZ" firstAttribute="leading" secondItem="Nb5-by-RCf" secondAttribute="leadingMargin" constant="37" id="mNv-3c-Xjg"/>
                             <constraint firstItem="qUY-S1-GDC" firstAttribute="top" secondItem="4CC-vf-Nhh" secondAttribute="bottom" constant="85" id="y2o-Ep-aGk"/>
@@ -272,6 +285,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="花費圖表" id="OZ6-BD-gVK"/>
                     <connections>
+                        <outlet property="dateLabel" destination="J8Q-nn-l59" id="LdL-ag-MoW"/>
                         <outlet property="pieChartView" destination="4CC-vf-Nhh" id="K5R-ji-sfl"/>
                         <outlet property="segmentedControl" destination="FeA-3F-OaZ" id="gJU-7n-Qvw"/>
                     </connections>

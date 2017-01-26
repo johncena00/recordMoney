@@ -30,6 +30,8 @@ class UIPieChartViewController: UIViewController {
         
         // 建立連線
         coreConnect = CoreDataConnect.init(moc: self.moc)
+        
+        pieChartView.noDataText = "You need to provide data for the chart."
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,23 +71,81 @@ class UIPieChartViewController: UIViewController {
         let myEntityName = "Account"
         let predicate = String(format:"createTime >= '%@' AND createTime <= '%@'", newDate,currentDate)
         var total = 0.0
+        var dictAccount: [String:Double] = [:]
         print(predicate)
         if let connect = coreConnect {
             let statement = connect.fetch(myEntityName: myEntityName, predicate: predicate, sort: [["createTime":true]], limit: nil)
             
             if let results = statement {
                 for result in results {
-                    let id = result.id
+                
                     let type = result.type!
-                    let amount = result.amount
-                    let createTime = result.createTime!
+                    var amount = result.amount
+                    
+                    if let value = dictAccount[type] {
+                        amount += value
+                    }
+                    
+                    dictAccount.updateValue(amount, forKey: type)
+                    
+                    print(dictAccount)
+                    
                     
                     total += amount
                 }
             }
             print(String(format: "%g", total))
+            
+            setChart(dictionary: dictAccount)
+            
+            
         }
     }
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        
+    }
+    
+    func setChart(dictionary:Dictionary<String, Double>) {
+        //var dataEntries: [PieChartDataEntry] = []
+        var dataEntries: [ChartDataEntry] = []
+        //var i:Int = 0
+        
+        for (key, value) in dictionary {
+            print("Dictionary key \(key) -  Dictionary value \(value)")
+            let dataEntry = PieChartDataEntry(value: value, label: key)
+            //let dataEntry = ChartDataEntry(x: Double(i), y: value)
+            dataEntries.append(dataEntry)
+            //i += 1
+        }
+        
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: nil )
+        
+        /*
+        var colors: [UIColor] = []
+        
+        for i in 0..<dictionary.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        pieChartDataSet.colors = colors
+        */
+        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartView.data = pieChartData
+        
+        
+        pieChartView.descriptionText = ""
+        
+        pieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+    }
+
     
     @IBAction func myToggleAction(_ sender: UISegmentedControl){
         switch segmentedControl.selectedSegmentIndex {

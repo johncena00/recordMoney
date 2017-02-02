@@ -148,14 +148,13 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBAction func addAction() {
         let optionMenu = UIAlertController(title: nil, message: "新增方式", preferredStyle: .actionSheet)
         
-        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "showRecord") as! UIRecordDetailViewController
-        
-        menuVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(UIRecordViewController.goBack))
-        let naviController = UINavigationController(rootViewController: menuVC)
-        
-        
         let qrActionHandler = {
             (action :UIAlertAction!) -> Void in
+            let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "QRCode") as! UIQRCodeViewController
+            menuVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(UIRecordViewController.goBack))
+            let naviController = UINavigationController(rootViewController: menuVC)
+            
+            self.present(naviController, animated: true, completion: nil)
         }
         
         let qrActoin = UIAlertAction(title: "QRCode", style: .default, handler: qrActionHandler)
@@ -163,6 +162,11 @@ class UIRecordViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let addActionHandler = {
             (action :UIAlertAction!) -> Void in
+            
+            let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "showRecord") as! UIRecordDetailViewController
+            menuVC.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(UIRecordViewController.goBack))
+            let naviController = UINavigationController(rootViewController: menuVC)
+            
             self.myUserDefaults.set(-1, forKey: "postID")
             self.myUserDefaults.synchronize()
             self.present(naviController, animated: true, completion: nil)

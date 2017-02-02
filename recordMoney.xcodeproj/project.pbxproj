@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		293AAF8E9E05143DB799257D /* Pods_recordMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1878612A27715C12B53D0891 /* Pods_recordMoney.framework */; };
+		E30FC3AF1E3A21EF003B3CD5 /* UIQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC3AE1E3A21EF003B3CD5 /* UIQRCodeViewController.swift */; };
 		E3AAEDA21E34E87F00D05BA9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AAEDA11E34E87F00D05BA9 /* CoreData.framework */; };
 		E3AAEDA41E34E8F300D05BA9 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AAEDA31E34E8F300D05BA9 /* Charts.framework */; };
 		E3AAEDBC1E34FCA200D05BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AAEDAF1E34FCA200D05BA9 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		1878612A27715C12B53D0891 /* Pods_recordMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C240C3AADE12674F5094C6E6 /* Pods-recordMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordMoney.release.xcconfig"; path = "Pods/Target Support Files/Pods-recordMoney/Pods-recordMoney.release.xcconfig"; sourceTree = "<group>"; };
+		E30FC3AE1E3A21EF003B3CD5 /* UIQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIQRCodeViewController.swift; sourceTree = "<group>"; };
 		E3AAED881E34E86900D05BA9 /* recordMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3AAEDA11E34E87F00D05BA9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E3AAEDA31E34E8F300D05BA9 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "Pods/../build/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				E3AAEDC91E352A1500D05BA9 /* UIPieChartViewController.swift */,
 				E3AAEDCB1E352CCE00D05BA9 /* UIRecordViewController.swift */,
 				E3AAEDCD1E35AF6B00D05BA9 /* UIRecordDetailViewController.swift */,
+				E30FC3AE1E3A21EF003B3CD5 /* UIQRCodeViewController.swift */,
 			);
 			path = recordMoney;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				E3AAEDBC1E34FCA200D05BA9 /* AppDelegate.swift in Sources */,
 				E3AAEDC01E34FCA200D05BA9 /* Account+CoreDataClass.swift in Sources */,
 				E3AAEDC31E34FCA200D05BA9 /* recordMoney.xcdatamodeld in Sources */,
+				E30FC3AF1E3A21EF003B3CD5 /* UIQRCodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -77,18 +77,18 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vge-CL-mBn" id="f9t-jj-HDb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nzz-ZZ-ONk">
-                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMy-TK-sKO">
-                                                    <rect key="frame" x="284" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="284" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -293,6 +293,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbH-IR-gpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1384.8" y="1112.2938530734634"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="un1-FB-YRa">
+            <objects>
+                <viewController storyboardIdentifier="QRCode" id="dNn-f4-T8o" customClass="UIQRCodeViewController" customModule="recordMoney" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Met-sd-oeJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Awv-IF-kU2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ytc-5E-RM7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR Code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si2-OG-GsJ">
+                                <rect key="frame" x="16" y="605" width="343" height="42"/>
+                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="si2-OG-GsJ" secondAttribute="trailing" id="1oF-1A-jIs"/>
+                            <constraint firstItem="Awv-IF-kU2" firstAttribute="top" secondItem="si2-OG-GsJ" secondAttribute="bottom" constant="20" id="C79-J4-lAW"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="si2-OG-GsJ" secondAttribute="leading" id="GmL-Zt-dh3"/>
+                            <constraint firstItem="si2-OG-GsJ" firstAttribute="top" secondItem="Met-sd-oeJ" secondAttribute="bottom" constant="585" id="XKj-IM-QQv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="si2-OG-GsJ" id="zRy-6K-zs2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6BZ-Ie-OkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2773.5999999999999" y="1211.2443778110946"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KWl-Lc-cue">
